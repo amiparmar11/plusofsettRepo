@@ -1,0 +1,100 @@
+﻿
+
+@model IEnumerable<PlusOffSet.Models.job_master>
+
+@{
+    //ViewData["Title"] = "Job Details";
+   // var errorMessage = TempData["errorMessage"]?.ToString();
+    //var successMessage = TempData["successMessage"]?.ToString();
+
+}
+
+<!-- jQuery -->
+<script type="text/javascript"
+        src=" https://code.jquery.com/jquery-3.5.1.js">
+</script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
+</script>
+
+
+<script src="https://cdn.datatables.net/datetime/1.4.1/js/dataTables.dateTime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js">
+</script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+
+<h2>@ViewData["Title"]?.ToString()</h2>
+<div class="tbl">
+    <h2>Job Details</h2>
+    <div>
+        @Html.ActionLink("Create New Job", "job_create", null, new { @class = "btn btn-primary" })
+    </div>
+    &nbsp;
+    
+    <table class="table table-bordered table-hover table-striped my-2" id="tableID">
+        <thead>
+
+
+            <tr>
+                <th>SR.No</th>
+                <th>Job No</th>
+                <th>Job Title</th>
+                <th>Job Item</th>
+                <th>Job Size</th>
+                <th>Job Qty</th>
+                <th>Created Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="serial-number"></td>
+                    <td>@Html.DisplayFor(modelItem => item.job_no)</td>
+                    <td>@Html.DisplayFor(modelItem => item.job_title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.job_item)</td>
+                    <td>@Html.DisplayFor(modelItem => item.job_size)</td>
+                    <td>@Html.DisplayFor(modelItem => item.job_qty)</td>
+                    <td>@(((DateTime)item.created_date).ToString("dd-MM-yyyy"))</td>
+                    <td>
+                        @Html.ActionLink("Edit", "job_Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("View", "job_view", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                        @Html.ActionLink("Delete", "job_Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                       
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+       
+    </table>
+</div>
+<script>
+  
+    var table = $('#tableID').DataTable();
+
+   
+        // Create date inputs
+       const rows = document.querySelectorAll('#tableID tbody tr');
+
+    // Iterate over each row and set the serial number
+    rows.forEach((row, index) => {
+        const serialNumberCell = row.querySelector('.serial-number');
+        serialNumberCell.textContent = index + 1;
+    }); 
+
+
+</script>
+
+
+
+
+

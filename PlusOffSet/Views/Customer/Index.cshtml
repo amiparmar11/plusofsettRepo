@@ -1,0 +1,90 @@
+﻿@model IEnumerable<PlusOffSet.Models.customer>
+
+@{
+    //ViewData["Title"] = "Customer Details";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+    var successMessage = TempData["successMessage"]?.ToString();
+
+}
+
+<script type="text/javascript"
+        src=" https://code.jquery.com/jquery-3.5.1.js">
+</script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
+</script>
+
+<h2>@ViewData["Title"]?.ToString()</h2>
+
+
+
+<div class="tbl">
+    <h2>Customer Details</h2>
+    <p>
+        @Html.ActionLink("Create New Customer", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+<table class="table table-bordered table-hover table-striped bg-gradient" id="tableID">
+        <thead>
+    <tr>
+        <th>SR.No</th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>Action</th>
+    </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="serial-number"></td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) &nbsp;&nbsp;&nbsp;               
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+      </tbody>
+</table>
+</div>
+<script>
+
+    // Initialize the DataTable
+
+    $('#tableID').DataTable();
+    
+        // Get all the table rows
+    const rows = document.querySelectorAll('#tableID tbody tr');
+
+    // Iterate over each row and set the serial number
+    rows.forEach((row, index) => {
+        const serialNumberCell = row.querySelector('.serial-number');
+        serialNumberCell.textContent = index + 1;
+    });
+
+
+</script>

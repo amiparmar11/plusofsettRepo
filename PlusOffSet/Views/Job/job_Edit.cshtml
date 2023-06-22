@@ -1,0 +1,293 @@
+﻿
+@model PlusOffSet.Models.job_master
+
+@{
+    ViewBag.Title = "job_Edit";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error ! </strong>   @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+<div class="card justify-content-center">
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Job Detail</h4>
+                <div class="form-group">
+                    <div class="col-3">
+                        @Html.EditorFor(model => model.created_date, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">job No</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_no,  new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.job_no, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Title</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Item</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_item, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_item, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Size</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_size, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_size, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Qty</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_qty, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_qty, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Details</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_details, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_details, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>&nbsp;
+                <h4>Job Paper Detail</h4>
+                <hr></hr>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Paper Type</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_paper_type, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_paper_type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Paper Size</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_paper_size, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_paper_size, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Paper Quality</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_paper_quality, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_paper_quality, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Paper No Of Sheets</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_paper_no_of_sheets, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_paper_no_of_sheets, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Paper By</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_paper_by, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_paper_by, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>&nbsp;
+                <h4>Job Printing Details</h4>
+                <hr></hr>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing No Of Sheets</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_no_of_sheets, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_no_of_sheets, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing Option</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_option, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_option, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing No Of Impression</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_no_of_impression, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_no_of_impression, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing No Of Form</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_no_of_form, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_no_of_form, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing GSM</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_GSM, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_GSM, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing Size1</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_size1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_size1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Printing Size2</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_printing_size2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_printing_size2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>&nbsp;
+                <h4>Other Details</h4>
+                <hr></hr>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Finishing Type</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_finishing_type, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_finishing_type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Finishing Quality</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_finishing_quality, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_finishing_quality, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Finishing Area</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_finishing_area, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_finishing_area, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Note</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_Note, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_Note, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job Machine</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_machine, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_machine, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label class="control-label">Job GSM</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.job_GSM, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.job_GSM, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>&nbsp;
+
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>&nbsp;
+            </div>
+        }
+        
+    </div>
+</div>
+
+
+
+

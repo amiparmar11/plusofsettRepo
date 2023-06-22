@@ -1,0 +1,202 @@
+﻿@model PlusOffSet.Models.job_master
+@{
+    ViewBag.Title = "job_view";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Detail</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <!-- Include jQuery UI library -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .print-label {
+            font-weight: bold;
+        }
+        .row {
+            margin-bottom: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="card" id="print-content">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Job No:</label>
+                    <span>@Html.DisplayFor(model => model.job_no)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Created Date:</label>
+                    <span>@(((DateTime)Model.created_date).ToString("dd-MM-yyyy"))</span>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Job Title:</label>
+                    <span>@Html.DisplayFor(model => model.job_title)</span>
+                </div>
+                <div class="col-6">
+                    <label>Job Item:</label>
+                    <span>@Html.DisplayFor(model => model.job_item)</span>
+                </div>
+           
+                <div class="col-6">
+                    <label class="control-label">Job Size:</label>
+                    <span>@Html.DisplayFor(model => model.job_size)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Qty:</label>
+                    <span>@Html.DisplayFor(model => model.job_qty)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Details:</label>
+                    <span>@Html.DisplayFor(model => model.job_details)</span>
+                </div>
+            </div><br />
+            <h4>Job Paper Detail</h4>
+            <span><hr /></span>
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Job Paper Type:</label>
+                    <span>@Html.DisplayFor(model => model.job_paper_type)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Paper Size:</label>
+                    <span>@Html.DisplayFor(model => model.job_paper_size)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Paper Quality:</label>
+                    <span>@Html.DisplayFor(model => model.job_paper_quality)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Paper By:</label>
+                    <span>@Html.DisplayFor(model => model.job_paper_by)</span>
+                </div>
+
+                <div class="col-6">
+                    <label class="control-label">Job Paper No Of Sheets:</label>
+                    <span>@Html.DisplayFor(model => model.job_paper_no_of_sheets)</span>
+                </div>
+            </div>
+            <br />
+            <h4>Job Printing Details</h4>
+            <hr />
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Job Printing No Of Sheets:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_no_of_sheets)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Printing Option:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_option)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Printing GSM:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_GSM)</span>
+                </div>
+            
+                <div class="col-6">
+                    <label class="control-label">Job Printing No Of Form:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_no_of_form)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Printing Size1:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_size1)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Printing Size2:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_size2)</span>
+                </div>
+                  <div class="col-6">
+                    <label class="control-label">Job Printing Impression:</label>
+                    <span>@Html.DisplayFor(model => model.job_printing_no_of_impression)</span>
+                </div>
+            </div>
+           <br />
+            <h4>Other Details</h4>
+            <hr />
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Job Finishing Type:</label>
+                    <span>@Html.DisplayFor(model => model.job_finishing_type)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Finishing Quality:</label>
+                    <span>@Html.DisplayFor(model => model.job_finishing_quality)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Finishing Area:</label>
+                    <span>@Html.DisplayFor(model => model.job_finishing_area)</span>
+                </div>
+
+                <div class="col-6">
+                    <label class="control-label">Job Note:</label>
+                    <span>@Html.DisplayFor(model => model.job_Note)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job Machine:</label>
+                    <span>@Html.DisplayFor(model => model.job_machine)</span>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Job GSM:</label>
+                    <span>@Html.DisplayFor(model => model.job_GSM)</span>
+                </div>
+            </div>
+           
+        </div>
+        </div>
+
+    <div class="row">
+        <div class="col-12">
+            <button id="pr" class="btn btn-secondary" onclick="printDiv('print-content')">Print</button>
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "text" })
+        </div>
+    </div>
+   
+
+        <script>
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            addPrintLabelClass();
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+        function addPrintLabelClass() {
+            var labels = document.querySelectorAll("label");
+            for (var i = 0; i < labels.length; i++) {
+                labels[i].classList.add("print-label");
+            }
+        }
+      
+    </script>
+  
+</body>
+</html>
+
+
+
+
+
